@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: |
+  I can use this template to launch a S3 Bucket
+
+Resources:
+  s3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: testybucket123am20210422
+
+Outputs:
+  BucketName:
+    Value: !Ref s3Bucket
+    Description: Name of the S3 Bucket
+  BucketARN:
+    Value:
+      Fn::GetAtt: [s3Bucket, Arn]
