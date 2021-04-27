@@ -2,11 +2,17 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: |
   I can use this template to launch a S3 Bucket
 
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: A bucket name
+
 Resources:
   s3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: testybucket123am20210422
+      BucketName: !Ref BucketName
 
 Outputs:
   BucketName:
