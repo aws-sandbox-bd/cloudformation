@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: |
+  I can use this template to launch a Nested Stack 
+  which eventually launches a S3 Bucket
+
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: A bucket name
+
+Resources:
+  s3BucketStack:
+    Type: AWS::CloudFormation::Stack
+      Properties: 
+        NotificationARNs: 
+          - String
+        Parameters: 
+          Key : Value
+        Tags: 
+          - Tag
+        TemplateURL: String
+        TimeoutInMinutes: Integer
+
+Outputs:
+  BucketName:
+    Value: !Ref s3BucketStack.Outputs.BucketName
+    Description: Name of the S3 Bucket
+  BucketARN:
+    Value: !Ref s3BucketStack.Outputs.BucketARN
+    Description: ARN of the S3 Bucket
