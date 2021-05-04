@@ -1,5 +1,23 @@
 # cloudformation
 
+
+* Shortcuts
+- `make package`
+- `make deploy`
+
+* Package a CFN Template
+```
+aws cloudformation package --template-file templates/02_create_aws_cfn_stack.yaml --s3-bucket <s3-bucket-name> --s3-prefix <prefix-name> --output-template-file template.yaml
+```
+
+* Deploy a stack
+```
+aws cloudformation deploy \
+--stack-name <stack_name> \
+--template-file <relative path of template.yaml> \
+--capabilities CAPABILITY_IAM
+```
+
 * List Stack
 * Create Stack
 ```
