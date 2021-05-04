@@ -3,9 +3,6 @@ args = `arg="$(filter-out $@,$(MAKECMDGOALS))" && echo $${arg:-${1}}`
 %:
 	@:
 
-test:
-	@echo $(call args,defaultstring)
-
 package:
 	aws cloudformation package \
 	--template-file templates/02_create_aws_cfn_stack.yaml \
@@ -18,3 +15,7 @@ deploy:
 	--template-file template.yaml \
 	--stack-name AWSCFNStack-Development \
 	--capabilities CAPABILITY_IAM
+
+delete:
+	aws cloudformation delete-stack \
+	--stack-name $(call args)
